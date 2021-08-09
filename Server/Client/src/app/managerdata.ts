@@ -8,6 +8,6 @@ export class DataService implements Resolve<any> {
   constructor(private _http: HttpClient) {
   }
   resolve() {
-    return this._http.get("http://localhost:4201/getManagers");
+    return this._http.get("getManagers");
   }
 }
