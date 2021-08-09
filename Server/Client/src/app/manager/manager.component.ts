@@ -72,7 +72,7 @@ export class ManagerComponent implements OnInit {
     const Name=(<HTMLInputElement>document.getElementById('customerName')).value;
     const Message=(<HTMLInputElement>document.getElementById('customerMessage')).value;
     const body={"name":Name,"email":userName,"message":Message};
-    this.httpClient.post('http://localhost:4201/createlog',body,{'headers':headers})
+    this.httpClient.post('createlog',body,{'headers':headers})
     .subscribe(result=>{
        this.toastr.success('Log Created !');
       (<HTMLInputElement>document.getElementById('message')).value='';
