@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  cursor:url(https://youtube.noobscode.com/files/112.png), auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+html,body{
+  height: 100%;
+}
+
+body{
+  display: grid;
+  text-align: center;
+  background: #dde1e7;
+}
