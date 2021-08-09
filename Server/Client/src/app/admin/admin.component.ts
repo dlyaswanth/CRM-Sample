@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
       body={"email":userName,"password":password,"type":type,"name":name};
       else
       body={"email":userName,"password":password,"type":type,"name":name,"manager":manager};
-      const signurl='http://localhost:4201/signup'
+      const signurl='signup'
       this.httpClient.post(signurl,body,{'headers':headers})
       .subscribe(res=>{
         this.toastr.success(`${type} Account Saved!`);
