@@ -18,23 +18,23 @@ export class ManagerComponent implements OnInit {
     const headers={'content-type':'application/json'};
     const userName=localStorage.getItem('CRM-Manager');
     const body={"email":userName};
-    this.httpClient.post('http://localhost:4201/getCustomers',body,{'headers':headers})
+    this.httpClient.post('getCustomers',body,{'headers':headers})
     .subscribe(result=>{
       this.Customers=result;
       this.Customer=result;
       //console.log(result)
     })
-    this.httpClient.post('http://localhost:4201/getReview',body,{'headers':headers})
+    this.httpClient.post('getReview',body,{'headers':headers})
      .subscribe(result=>{
       this.review=result;
       //console.log(result)
     })
-    this.httpClient.post('http://localhost:4201/getManReviews',body,{'headers':headers})
+    this.httpClient.post('getManReviews',body,{'headers':headers})
      .subscribe(result=>{
       this.reviews=result;
       //console.log(result)
     })
-    this.httpClient.post('http://localhost:4201/getlog',body,{'headers':headers})
+    this.httpClient.post('getlog',body,{'headers':headers})
      .subscribe(result=>{
       this.Clog=result;
       //console.log(result)
@@ -53,7 +53,7 @@ export class ManagerComponent implements OnInit {
       this.toastr.info('Please Wait !' );
       const userName=(<HTMLInputElement>document.getElementById('email')).value;
       const body={"email":userName,"message":message};
-      this.httpClient.post('http://localhost:4201/sendMessage',body,{'headers':headers})
+      this.httpClient.post('sendMessage',body,{'headers':headers})
       .subscribe(result=>{
         (<HTMLInputElement>document.getElementById('message')).value='';
        // this.toastr.info('Please Wait !');
@@ -74,6 +74,7 @@ export class ManagerComponent implements OnInit {
     const body={"name":Name,"email":userName,"message":Message};
     this.httpClient.post('http://localhost:4201/createlog',body,{'headers':headers})
     .subscribe(result=>{
+       this.toastr.success('Log Created !');
       (<HTMLInputElement>document.getElementById('message')).value='';
     })
   }
