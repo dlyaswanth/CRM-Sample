@@ -1,0 +1,90 @@
+<div>
+  <div class="neu">
+    <div class="header">
+      Customer Relationship Management
+    </div>
+    <nav class="menu">
+        <ul>
+          <li class="active"><i class="fa fa-home"></i>Home</li>
+          <li class="red" (click)="logout()"><i class="fa fa-power-off"  ></i>logout</li>
+        </ul>
+    </nav>
+  </div>
+</div>
+<div id="container">
+  <div id="leftThing">
+    <div class="content">
+      <div class="text">Send Notes to User</div>
+          <div class="field">
+              <span class="fas fa-envelope"></span>
+              <input type="text" required placeholder="Email" id='email'>
+          </div>
+        <div class="field" style="height: 100px;">
+          <span class="fas fa-sticky-note"></span>
+          <textarea rows="4" cols="50" name="comment" form="usrform" id="message" placeholder="Enter note here"></textarea>
+        </div>
+        <button (click)="send()">Send note</button>
+      <div class="note">Manager Rating :  <b>{{review}}</b></div>
+    </div>
+  </div>
+  <div id="rightThing" class="scroll">
+    <div class="content"style="width: 90%; height:95%; ">
+      <div class="text">Your Customers</div>
+      <div *ngFor="let customer of Customers">
+        <div class="message">
+          <h5>Name: {{customer.Name}}</h5>
+          <h5>Email: {{customer.Email}}</h5>
+        </div>
+        <br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="container">
+      <div id="leftThing">
+    <div class="content">
+      <div class="text">
+        <div class="field">
+          <span class="fas fa-user"></span>
+          <select class="form-select" id="customerName" aria-placeholder="Choose">
+              <option>Select Customer</option>
+            <option *ngFor="let cus of Customer">
+                {{cus.Name}}
+              </option>
+          </select>
+        </div>
+          <div class="field" style="height: 100px;">
+            <span class="fas fa-sticky-note"></span>
+            <textarea rows="4" cols="50" name="comment" form="usrform" id="customerMessage" placeholder="Enter Log here"></textarea>
+          </div>
+        
+        <button (click)="createLog()">Create Log</button>
+      </div>
+    </div>
+  </div>
+  <div id="rightThing">
+    <div class="content"style="width: 90%; height:95%; ">
+      <div class="text">Customer Logs</div>
+      <div *ngFor="let customer of Clog">
+        <div class="message">
+          <h5>Name: {{customer.name}}</h5>
+          <h5>Message: {{customer.message}}</h5>
+        </div>
+        <br/>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="content"style="margin-left:5%;width: 90%; height:600px; ">
+    <div class="text">Your Reviews by Customers</div>
+    <div *ngFor="let customer of reviews">
+      <div class="message">
+        <h5>Email: {{customer.name}}</h5>
+        <h5>Message: {{customer.message}}</h5>
+      </div>
+      <br/>
+    </div>
+  </div>
+  <br />
+  <br />

@@ -1,0 +1,69 @@
+<div>
+    <div class="neu">
+      <div class="header">
+        Customer Relationship Management
+      </div>
+      <nav class="menu">
+          <ul>
+            <li class="active"><i class="fa fa-home"></i>Home</li>
+            <li class="red" (click)="logout()"><i class="fa fa-power-off"  ></i>logout</li>
+          </ul>
+      </nav>
+    </div>
+  </div>
+<div id="container">
+    <div id="leftThing">
+      <div class="content">
+        <div class="text">Rate a manager</div>
+            <div class="field">
+                <select name="users" id="value">
+                    <option value="1">Poor</option>
+                    <option value="2">Satisfied</option>
+                    <option value="3">Average</option>
+                    <option value="4">Good</option>
+                    <option value="5">Awesome</option>
+                </select>
+            </div>
+            <button  (click)="post()" >Rate Manager</button>
+        </div>
+    </div>
+    <div id="rightThing" class="scroll">
+      <div class="content"style="width: 90%; height:95%; ">
+        <div class="text">Message from your manager</div>
+            <div *ngFor="let message of Messages"> <div class="message">
+                <div>Manager: {{message.message}}</div>
+            </div>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftThing">
+        <div class="content">
+            <div class="text">Review Manager</div>
+            <div class="field">
+                <span class="fas fa-user-circle"></span>
+                <select name="users" id="name">
+                    <option value="Anonymous">Anonymous</option>
+                    <option value={{user}}>{{user}}</option>
+                </select>
+            </div>
+            <div class="field" style="height: 100px;">
+                <span class="fas fa-sticky-note"></span>
+                <textarea rows="4" cols="50" name="comment" form="usrform" id="message" placeholder="Enter note here"></textarea>
+              </div>
+              <button (click)="postRev()">Post Review</button>
+        </div>
+    </div>
+    <div id="rightThing">
+        <div class="content"style="width: 90%; height:95%; ">
+          <div class="text">Your Reviews for Manager</div>
+              <div *ngFor="let message of reviews"> <div class="message">
+                  <div>{{message.name}}:     {{message.message}}</div>
+              </div>
+                  <br />
+              </div>
+          </div>
+      </div>
+</div>

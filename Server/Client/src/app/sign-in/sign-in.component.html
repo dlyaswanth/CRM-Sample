@@ -1,0 +1,21 @@
+<div class="content">
+    <div class="text">Login</div>
+      <div class="field">
+        <span class="fas fa-envelope"></span>
+        <input type="text" required id='email' placeholder="Email">
+      </div>
+      <div class="field">
+        <span class="fas fa-lock"></span>
+        <input type="password" id='password' placeholder="Password">
+      </div>
+       <div class="field">
+        <span class="fas fa-user"></span>
+       <select name="users" id="userType">
+          <option value="Admin">Admin</option>
+          <option value="Manager">Manager</option>
+          <option value="Customer">Customer</option>
+        </select>
+      </div>
+      <div class="forgot-pass"></div>
+      <button (click)="signHandler()">Log In</button>
+</div>
