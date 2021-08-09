@@ -24,7 +24,7 @@ export class CustomerComponent implements OnInit {
     //console.log(review)
     const email=localStorage.getItem('CRM-Customer');
     const body={"name":name,"message":review,"email":email};
-    this.httpClient.post('http://localhost:4201/postReview',body,{'headers':headers})
+    this.httpClient.post('postReview',body,{'headers':headers})
     .subscribe(res=>{
       (<HTMLInputElement>document.getElementById('name')).value="";
       (<HTMLInputElement>document.getElementById('message')).value='';
@@ -38,7 +38,7 @@ export class CustomerComponent implements OnInit {
     const review=(<HTMLInputElement>document.getElementById('value')).value;
     //console.log(review)
     const body={"email":email,"review":review};
-    this.httpClient.post('http://localhost:4201/review',body,{'headers':headers})
+    this.httpClient.post('review',body,{'headers':headers})
     .subscribe(res=>{
       (<HTMLInputElement>document.getElementById('value')).value="1";
       this.toastr.success('Review Posted !' );
@@ -49,12 +49,12 @@ export class CustomerComponent implements OnInit {
     const email=localStorage.getItem('CRM-Customer');
     this.user=email;
     const body={"email":email};
-    this.httpClient.post('http://localhost:4201/getMessages',body,{'headers':headers})
+    this.httpClient.post('getMessages',body,{'headers':headers})
     .subscribe(res=>{
       this.Messages=res;
       //console.log(res);
     })
-    this.httpClient.post('http://localhost:4201/getReviews',body,{'headers':headers})
+    this.httpClient.post('getReviews',body,{'headers':headers})
     .subscribe(res=>{
       this.reviews=res;
       //console.log(res);
